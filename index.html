@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://deoca.vn/giaodien/default/images/icon-deoca.png">
+    <title>TRA CỨU XE ƯU TIÊN TUYẾN BGLS</title>
+    <link rel="stylesheet" href="styles/tracuu.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="scripts/tracuu.js"></script>
+</head>
+<body onload="fetchData()">
+    <div class="container">
+        <div class="menu">
+            <a href="#home">Trang chủ</a>
+            <a href="#tracuuut">Tra cứu xe ưu tiên</a>
+            <a href="#qlthietbi">QL thiết bị</a>
+            <a href="#lienhe">Liên hệ</a>
+        </div>
+        <div class="content">
+            <h2>TRA CỨU XE ƯU TIÊN TUYẾN BGLS</h2>
+            <div class="input-group">
+                <input type="text" id="searchBox" placeholder="Nhập biển số...">
+                <input type="date" id="fromDate" placeholder="Từ ngày">
+                <input type="date" id="toDate" placeholder="Đến ngày">
+            </div>
+            <div class="buttons">
+                <button onclick="fetchData()">Tìm kiếm</button>
+                <button onclick="exportToPDF()">Xuất PDF</button>
+                <button onclick="exportToExcel()">Xuất Excel</button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Biển số</th>
+                            <th>Giờ</th>
+                            <th>Ngày</th>
+                            <th>Trạm vào</th>
+                            <th>Trạm ra</th>
+                            <th>Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button id="prevPage" style="display: none;" onclick="prevPage()"><</button>
+                    <button id="nextPage" style="display: none;" onclick="nextPage()">></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            Cao tốc BGLS 2025 - Copyright: Hòa Nguyễn
+        </div>
+    </div>
+</body>
+</html>
